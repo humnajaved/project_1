@@ -1,0 +1,67 @@
+DATABASE C:\Program Files (x86)\USGS\Phreeqc Interactive 3.7.3-15968\database\phreeqc.dat
+
+# Eagle Ford Brine
+SOLUTION 1 Eagle_Ford_Brine
+    temp      50
+    pH        7.0
+    pe        4
+    units     mol/kgw
+    Na        0.85
+    Cl        1.52
+    Ca        0.002 as Ca+2
+    Mg        0.0005 as Mg+2
+    K         0.01
+    Alkalinity 2
+    C(4)      2e-3
+
+EQUILIBRIUM_PHASES 1
+    Calcite   0.0 10
+    Dolomite  0.0 10
+    Quartz    0.0 10
+    Illite    0.0 10
+    Kaolinite 0.0 10
+    Anhydrite 0.0 10
+    Pyrite    0.0 10
+
+# Mancos Brine
+SOLUTION 2 Mancos_Brine
+    temp      50
+    pH        6.8
+    pe        4
+    units     mol/kgw
+    Na        0.95
+    Cl        1.45
+    Ca        0.005 as Ca+2
+    Mg        0.001 as Mg+2
+    K         0.008
+    Alkalinity 2.2
+    C(4)      2.2e-3
+
+EQUILIBRIUM_PHASES 2
+    Calcite   0.0 10
+    Dolomite  0.0 10
+    Quartz    0.0 10
+    Illite    0.0 10
+    Kaolinite 0.0 10
+    Anhydrite 0.0 10
+    Pyrite    0.0 10
+
+REACTION_TEMPERATURE 1
+    25 50 75 100
+
+GAS_PHASE 1
+    fixed_volume
+    pressure 100
+    CO2(g) 1
+
+SELECTED_OUTPUT 1
+    -file output_ef.txt
+    -si Calcite Dolomite Quartz Illite Kaolinite Pyrite
+    -molalities Na+ Cl- Ca2+ Mg2+ K+ HCO3-
+
+SELECTED_OUTPUT 2
+    -file output_mancos.txt
+    -si Calcite Dolomite Quartz Illite Kaolinite Pyrite
+    -molalities Na+ Cl- Ca2+ Mg2+ K+ HCO3-
+
+END
